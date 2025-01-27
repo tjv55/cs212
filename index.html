@@ -1,48 +1,148 @@
 <!DOCTYPE html>
+<!--Edit Notes:
+indexhw1->indexh2
 
+Step 1:
+Added: Table
+Removed: List
+Updated Education and experience section by adding a table to the information to display.
+utitizalzing <table>, <tr>, <th>, <td>. Also added style section for the table to make
+it look a bit better.
 
-<!-- root element -->
-<html>
-    <!-- head section -->
+Step 2:
+use html lists - already implemented
+
+Step 3:
+Added: Pictures to Project Section
+utitizaling <img src> tag
+Moved <small> tags to under pictures to give discription of pictures
+
+Step 4:
+Added: Hyperlinks to Contact Information and Github link
+Utitizaling: <a href=> tag
+
+Step 5:
+Added: New section Resume with link to download resume
+Utitizaling: <a href=> tag
+-->
+
+<!-- Style Section for Table and Other Formatting -->
+<style>
+table, th, td {
+    border:1px solid rgb(61, 50, 204);
+}
+</style>
+<body>
+
+    <!-- Header Section with Name and Role -->
     <head>
-        <!-- Webpage title-->
-        <title>
-            My first webpage
-        </title>
+        <h1>Tyler Vander Mooren</h1>
+        <h2>Expert Snowboarder, Student of Cyber Security</h2>
     </head>
 
+    <!-- Introduction Section -->
+    <section>
+        <h3>Introduction</h3>
+        <p>Hello! I'm Tyler Vander Mooren, a passionate snowboarder with a deep interest<br> in technology and a strong commitment to pursuing a career in Cyber Security.<br> Throughout my life, I've always been drawn to problem-solving, whether it's<br> navigating the slopes or sloving a puzzle in a game. As a snowboarder, I embrace<br> the challenges that come with mastering new tricks and conquering challenging terrains,<br> which parallels my approach to learning and growing in the field of Cyber Security.</p>
+    </section>
 
-    <!-- body section-->
-    <body>
-        <h1>First Webpage</h1>
-        
-        <p>
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-        </p>
-        <p>
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-            testcontenttestcontenttestcontenttestcontenttestcontent
-        </p>
-    </body>
+    <!-- Skills Section -->
+    <section>
+        <h3>Skills</h3>
+        <ul>
+            <li><b>HTML & CSS</b> - Expertise in creating visually appealing and responsive webpages.</li>
+            <li><b>JavaScript</b> - Knowledge of dynamic and interactive web development.</li>
+            <li><b>Project Management</b> - Experience leading teams and managing timelines.</li>
+            <li><b>Snowboarding</b> - Proficient in all aspects of free riding and shredding <mark>pow</mark>.</li>
+            
+        </ul>
+    </section>
+
+    <!-- Projects Showcase Section -->
+    <!--Update: HW2: Added pictures and moved <small> to under pictures to describe pictures -->
+    <section>
+        <h3>Projects</h3>
+        <ul>
+            <li>
+                <b>Project 1: Web Development Portfolio</b>
+                <p>A personal portfolio website developed to showcase my skills in web design and<br>
+                     development. Features include responsive layout and interactive components.<br></p>
+                <!-- Image Added Project 1 - HW2 -->
+                <img src="project1pic1.png" alt="project1" width="500" height="333">
+                <p><small>(Picture of the development setup for project 1)</small></p>
+            </li>
+            <li>
+                <b>Project 2: Endless Runner Java Game</b>
+                <p>A personal attempt at making a game in the subgenre of platform game in which the <br>
+                    player character runs for an infinite amount of time while avoiding obstacles. <br>
+                    <small>(In progress, still working on refining gameplay mechanics.)</small></p>
+                <!-- Image Added Project 2 - HW2 -->
+                <img src="project2pic.png" alt="proj2pic1" width="200" height="133">
+                <p><small>(Picture of Opening Screen)</small></p>
+                <!-- Image Added Project 2 - HW2 -->
+                <img src="project2pic2.png" alt="proj2pic2" width="200" height="133"> 
+                <p><small>(Picture of Game Over Screen)</small></p>   
+            </li>
+            <li>
+                <b>Project 3: Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</b>
+                <p>A simple project that converts Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</p>
+                <!-- Image Added Project 3 - HW2 -->
+                <img src="project3pic.jpg" alt="proj3pic1" width="200" height="133">
+                <p><small>(Picture of GUI Application)</small></p>
+                <!-- Image Added Project 3- HW2 -->
+                <img src="project3pic2.png" alt="proj3pic2" width="500" height="333">
+                <p><small>(Snippit of some of the Code)</small></p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Education and Experience Section -->
+    <!-- Update: Removed the list, and Added a table to showcase the education section better -->
+    <section>
+        <h3>Education & Experience</h3>
+        <table>
+            <tr>
+              <th>Institution/Company</th>
+              <th>Degree or Position</th>
+              <th>Duration</th>
+            </tr>
+            <tr>
+              <td>Northern Arizona University</td>
+              <td>BS Cyber Security</td>
+              <td>2024-Current</td>
+            </tr>
+            <tr>
+                <td>Alta Vista Country Club</td>
+                <td>Golf Shop Attendent</td>
+                <td>2024-Current</td>
+              </tr>
+              <tr>
+                <td>Stator Bros</td>
+                <td>Meat Clerk</td>
+                <td>2020-2023</td>
+              </tr>
+            <tr>
+              <td>Snowboarder</td>
+              <td>Freestyle Expert</td>
+              <td>2003-Current</td>
+            </tr>
+          </table> 
+    </section>
+
+    <!-- Contact Information Section -->
+    <!--HW2-Update: Added hyperlinks for Contact Information-->
+    <section class="contact-info">
+        <h3>Contact Information</h3>
+        <p><a href="mailto:tjv55@nau.edu">Send Email:</a> tjv55@nau.edu</a></p>
+        <p><a href="https://github.com/tjv55/cs212">Github(School Account)</a></p>
+    </section>
+
+<!-- Resume Section -->
+    <!--HW2-Update: Added this section and hyperlink to download resume-->
+    <section class="contact-info">
+        <h3>Resume</h3>
+        <p><a href="https://docs.google.com/document/d/1_FxqUrUPCA8dzJNs6HSmchz7uPMRsOEFzBuS9GOGWns/edit?usp=sharing">Resume</a></p>  
+    </section>
+
+</body>
 </html>
