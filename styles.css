@@ -1,0 +1,211 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Grid Layout */
+.container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    height: 100vh;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background-color: rgb(61, 50, 204);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Sidebar */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content is spread out, button at bottom */
+    height: 100%; /* Full height of the sidebar */
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: rgb(61, 50, 204);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.sidebar a:hover {
+    color: #fff;
+    background-color: rgb(61, 50, 204);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Style for Download Resume Button */
+.resume-btn {
+    background-color: #3d32cc; /* Matching color to the header */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    border-radius: 25px; /* Rounded corners */
+    font-size: 1.2rem; /* Increase font size for better visibility */
+    text-align: center;
+    text-decoration: none; /* Remove underline from link */
+    margin-top: auto; /* Pushes button to the bottom of the sidebar */
+    width: auto; /* Make the width fit the content */
+    display: block; /* Make the button behave like a block element */
+}
+
+.resume-btn:hover {
+    background-color: #2c249e; /* Darker shade on hover */
+    padding: 12px 24px; /* Slightly increase padding on hover */
+    border-radius: 30px; /* More pronounced curve on hover */
+}
+
+/* Main Content Area */
+.main {
+    grid-area: main;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+h3 {
+    color: rgb(61, 50, 204);
+}
+/* Projects Section - Grid Layout */
+#projects .projects {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid */
+    grid-gap: 20px; /* Space between grid items */
+    margin-top: 20px;
+}
+
+/* Style for individual project items */
+.project-item {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid rgb(61, 50, 204);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.project-item img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.project-item small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: rgb(61, 50, 204);
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid rgb(61, 50, 204);
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: rgb(61, 50, 204);
+    color: white;
+}
+
+/* Flexbox for Skills Section */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skills li {
+    width: 30%;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.skills li b {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: rgb(61, 50, 204);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Allow positioning within the footer */
+}
+
+footer h3 {
+    margin-top: 0;
+}
+
+/* Contact Information */
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Positioning Contact Information within the Footer */
+footer .contact-info {
+    position: absolute;
+    bottom: 10px; /* 10px from the bottom of the footer */
+    left: 20px;  /* 20px from the left side of the footer */
+    width: calc(100% - 40px); /* Ensures the contact section fits nicely */
+    text-align: left;
+}
+

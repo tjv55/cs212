@@ -1,148 +1,141 @@
 <!DOCTYPE html>
-<!--Edit Notes:
-indexhw1->indexh2
+<!-- Edit Notes:
+ indexhw2->indexhw3
+ Added css styles sheet for better customization
+ Step 1:
+ Page layout using CSS grid
+ Header,Sidebar,Main Content, Footer Sections in .container class
+ Step 2:
+ Used flexbox to align navigation items
+ Step 3:
+ Added some color to sections
+ Step 4:
+ flexbox to decorate skills section
+ step 5:
+ Css grid to display project section
+ Step 6:
+ Position contact information in Footer
+ Step 7:
+ Styled the download resume button and
+ put in left navigation menu
+ utiziling position absolute
+ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyler Vander Mooren - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-Step 1:
-Added: Table
-Removed: List
-Updated Education and experience section by adding a table to the information to display.
-utitizalzing <table>, <tr>, <th>, <td>. Also added style section for the table to make
-it look a bit better.
+    <body>
+    <!-- Page Layout -->
+    <div class="container">
+        <!-- Header Section with Name and Role -->
+        <header>
+            <h1>Tyler Vander Mooren</h1>
+            <h2>Expert Snowboarder, Student of Cyber Security</h2>
+        </header>
 
-Step 2:
-use html lists - already implemented
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <a href="#summary">Summary</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="https://docs.google.com/document/d/1_FxqUrUPCA8dzJNs6HSmchz7uPMRsOEFzBuS9GOGWns/edit?usp=sharing" class="resume-btn"><p style ="color:white;">Download Resume</p></a>
+        </div>
 
-Step 3:
-Added: Pictures to Project Section
-utitizaling <img src> tag
-Moved <small> tags to under pictures to give discription of pictures
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Summary Section -->
+            <section id="summary">
+                <h3>Introduction</h3>
+                <p>Hello! I'm Tyler Vander Mooren, a passionate snowboarder with a deep interest in technology and a strong commitment to pursuing a career in Cyber Security. Throughout my life, I've always been drawn to problem-solving, whether it's navigating the slopes or solving a puzzle in a game. As a snowboarder, I embrace the challenges that come with mastering new tricks and conquering challenging terrains, which parallels my approach to learning and growing in the field of Cyber Security.</p>
+            </section>
 
-Step 4:
-Added: Hyperlinks to Contact Information and Github link
-Utitizaling: <a href=> tag
+            <!-- Skills Section -->
+            <section id="skills">
+                <h3>Skills</h3>
+                <ul class="skills">
+                    <li><b>HTML & CSS</b> - Expertise in creating visually appealing and responsive webpages.</li>
+                    <li><b>JavaScript</b> - Knowledge of dynamic and interactive web development.</li>
+                    <li><b>Project Management</b> - Experience leading teams and managing timelines.</li>
+                    <li><b>Snowboarding</b> - Proficient in all aspects of free riding and shredding <mark>pow</mark>.</li>
+                </ul>
+            </section>
 
-Step 5:
-Added: New section Resume with link to download resume
-Utitizaling: <a href=> tag
--->
+            <!-- Projects Section -->
+            <section id="projects">
+                <h3>Projects</h3>
+                <div class="projects">
+                    <div class="project-item">
+                        <b>Project 1: Web Development Portfolio</b>
+                        <p>A personal portfolio website developed to showcase my skills in web design and development. Features include responsive layout and interactive components.</p>
+                        <img src="https://tjv55.blob.core.windows.net/cs212/project1pic1.png" alt="project1" width="500" height="333">
+                        <small>(Picture of the development setup for project 1)</small>
+                    </div>
 
-<!-- Style Section for Table and Other Formatting -->
-<style>
-table, th, td {
-    border:1px solid rgb(61, 50, 204);
-}
-</style>
-<body>
+                    <div class="project-item">
+                        <b>Project 2: Endless Runner Java Game</b>
+                        <p>A personal attempt at making a game in the subgenre of platform game in which the player character runs for an infinite amount of time while avoiding obstacles. <small>(In progress, still working on refining gameplay mechanics.)</small></p>
+                        <img src="https://tjv55.blob.core.windows.net/cs212/project2pic.png" alt="proj2pic1" width="200" height="133"/>
+                        <small>(Picture of Opening Screen)</small>
+                        <img src="https://tjv55.blob.core.windows.net/cs212/project2pic2.png" alt="proj2pic2" width="200" height="133"/>
+                        <small>(Picture of Game Over Screen)</small>
+                    </div>
 
-    <!-- Header Section with Name and Role -->
-    <head>
-        <h1>Tyler Vander Mooren</h1>
-        <h2>Expert Snowboarder, Student of Cyber Security</h2>
-    </head>
+                    <div class="project-item">
+                        <b>Project 3: Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</b>
+                        <p>A simple project that converts Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</p>
+                        <img src="https://tjv55.blob.core.windows.net/cs212/project3pic.jpg" alt="proj3pic1" width="200" height="133">
+                        <small>(Picture of GUI Application)</small>
+                        <img src="https://tjv55.blob.core.windows.net/cs212/project3pic2.png" alt="proj3pic2" width="500" height="333"/>
+                        <small>(Snippet of some of the Code)</small>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Introduction Section -->
-    <section>
-        <h3>Introduction</h3>
-        <p>Hello! I'm Tyler Vander Mooren, a passionate snowboarder with a deep interest<br> in technology and a strong commitment to pursuing a career in Cyber Security.<br> Throughout my life, I've always been drawn to problem-solving, whether it's<br> navigating the slopes or sloving a puzzle in a game. As a snowboarder, I embrace<br> the challenges that come with mastering new tricks and conquering challenging terrains,<br> which parallels my approach to learning and growing in the field of Cyber Security.</p>
-    </section>
+            <!-- Education Section -->
+            <section id="education">
+                <h3>Education & Experience</h3>
+                <table>
+                    <tr>
+                        <th>Institution/Company</th>
+                        <th>Degree or Position</th>
+                        <th>Duration</th>
+                    </tr>
+                    <tr>
+                        <td>Northern Arizona University</td>
+                        <td>BS Cyber Security</td>
+                        <td>2024-Current</td>
+                    </tr>
+                    <tr>
+                        <td>Alta Vista Country Club</td>
+                        <td>Golf Shop Attendant</td>
+                        <td>2024-Current</td>
+                    </tr>
+                    <tr>
+                        <td>Stator Bros</td>
+                        <td>Meat Clerk</td>
+                        <td>2020-2023</td>
+                    </tr>
+                    <tr>
+                        <td>Snowboarder</td>
+                        <td>Freestyle Expert</td>
+                        <td>2003-Current</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
 
-    <!-- Skills Section -->
-    <section>
-        <h3>Skills</h3>
-        <ul>
-            <li><b>HTML & CSS</b> - Expertise in creating visually appealing and responsive webpages.</li>
-            <li><b>JavaScript</b> - Knowledge of dynamic and interactive web development.</li>
-            <li><b>Project Management</b> - Experience leading teams and managing timelines.</li>
-            <li><b>Snowboarding</b> - Proficient in all aspects of free riding and shredding <mark>pow</mark>.</li>
-            
-        </ul>
-    </section>
-
-    <!-- Projects Showcase Section -->
-    <!--Update: HW2: Added pictures and moved <small> to under pictures to describe pictures -->
-    <section>
-        <h3>Projects</h3>
-        <ul>
-            <li>
-                <b>Project 1: Web Development Portfolio</b>
-                <p>A personal portfolio website developed to showcase my skills in web design and<br>
-                     development. Features include responsive layout and interactive components.<br></p>
-                <!-- Image Added Project 1 - HW2 -->
-                <img src="https://tjv55.blob.core.windows.net/cs212/project1pic1.png" alt="project1" width="500" height="333">
-                <p><small>(Picture of the development setup for project 1)</small></p>
-            </li>
-            <li>
-                <b>Project 2: Endless Runner Java Game</b>
-                <p>A personal attempt at making a game in the subgenre of platform game in which the <br>
-                    player character runs for an infinite amount of time while avoiding obstacles. <br>
-                    <small>(In progress, still working on refining gameplay mechanics.)</small></p>
-                <!-- Image Added Project 2 - HW2 -->
-                <img src="https://tjv55.blob.core.windows.net/cs212/project2pic.png" alt="proj2pic1" width="200" height="133"/>
-                <p><small>(Picture of Opening Screen)</small></p>
-                <!-- Image Added Project 2 - HW2 -->
-                <img src="https://tjv55.blob.core.windows.net/cs212/project2pic2.png" alt="proj2pic2" width="200" height="133"/> 
-                <p><small>(Picture of Game Over Screen)</small></p>   
-            </li>
-            <li>
-                <b>Project 3: Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</b>
-                <p>A simple project that converts Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</p>
-                <!-- Image Added Project 3 - HW2 -->
-                <img src="https://tjv55.blob.core.windows.net/cs212/project3pic.jpg" alt="proj3pic1" width="200" height="133">
-                <p><small>(Picture of GUI Application)</small></p>
-                <!-- Image Added Project 3- HW2 -->
-                <img src="https://tjv55.blob.core.windows.net/cs212/project3pic2.png" alt="proj3pic2" width="500" height="333"/>
-                <p><small>(Snippit of some of the Code)</small></p>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Education and Experience Section -->
-    <!-- Update: Removed the list, and Added a table to showcase the education section better -->
-    <section>
-        <h3>Education & Experience</h3>
-        <table>
-            <tr>
-              <th>Institution/Company</th>
-              <th>Degree or Position</th>
-              <th>Duration</th>
-            </tr>
-            <tr>
-              <td>Northern Arizona University</td>
-              <td>BS Cyber Security</td>
-              <td>2024-Current</td>
-            </tr>
-            <tr>
-                <td>Alta Vista Country Club</td>
-                <td>Golf Shop Attendent</td>
-                <td>2024-Current</td>
-              </tr>
-              <tr>
-                <td>Stator Bros</td>
-                <td>Meat Clerk</td>
-                <td>2020-2023</td>
-              </tr>
-            <tr>
-              <td>Snowboarder</td>
-              <td>Freestyle Expert</td>
-              <td>2003-Current</td>
-            </tr>
-          </table> 
-    </section>
-
-    <!-- Contact Information Section -->
-    <!--HW2-Update: Added hyperlinks for Contact Information-->
-    <section class="contact-info">
-        <h3>Contact Information</h3>
-        <p><a href="mailto:tjv55@nau.edu">Send Email:</a> tjv55@nau.edu</a></p>
-        <p><a href="https://github.com/tjv55/cs212">Github(School Account)</a></p>
-    </section>
-
-<!-- Resume Section -->
-    <!--HW2-Update: Added this section and hyperlink to download resume-->
-    <section class="contact-info">
-        <h3>Resume</h3>
-        <p><a href="https://docs.google.com/document/d/1_FxqUrUPCA8dzJNs6HSmchz7uPMRsOEFzBuS9GOGWns/edit?usp=sharing">Resume</a></p>  
-    </section>
-
-</body>
+            <!-- Footer Section -->
+            <footer>
+                <h3>Contact Information</h3>
+                <div class="contact-info">
+                    <p><a href="mailto:tjv55@nau.edu">Send Email:</a> tjv55@nau.edu</p>
+                    <p><a href="https://github.com/tjv55/cs212">Github (School Account)</a></p>
+                </div>
+            </footer>
+    </body>
 </html>
