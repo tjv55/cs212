@@ -1,23 +1,25 @@
 /*-------v1.4Edit---------
-Step 1: Add responsive design - mobile,tablet,desktop
-mobile - 480px(single column/Hide sidebar)
-tablet - 481-768px(double column)
-desktop - 769px+ 
+Step1:
+Flexbox already implemented on nav bar
+Flex-grow/shrink applied
+Each is a working link to each section
+Items are now centered
 
-Step 2:
-added transform properties to the skills section
-when hovered over, the section scales up making a pop out effect
-added bold text to change to blue to add more effect and fit design
+Step2:
+Implemented flexbox for the main container
+Implemented flex-direction using column 
+applied flex grow/shrink for main container
+Main-container has padding added 
 
-Step 3:
-Applied float to images and consitent scaling for the images
-added sticky positioing to the header
-added hover over effect to project section images
+Step3:
+Implemented Grid for skills and projects section
+used grid-template-columns/rows for each section
+made project 1 span across a column and row in project section
 
-Step 4:
-Added transition effect to download button to match other pop out effect
-Added grid for main content area
-other sections already have flex/etc
+Step4:
+Make header/footer a flexbox
+Header is fixed with property fixed
+footer is fixed with property fixed
 */
 /* Global Styles */
 body {
@@ -25,6 +27,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    /*V1.5-step 4 edit added top/bottom margins */
+    margin-top: 80px;
+    margin-bottom: 60px;
 }
 
 /* Grid Layout */
@@ -39,19 +44,23 @@ body {
     height: 100vh;
 }
 
-/* Header */
+/*V1.5-Step 4 edit Made header into flexbox. Header */
 header {
-    grid-area: header;
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: rgb(61, 50, 204);
     color: white;
-    padding: 10px;
     text-align: center;
-    /*V1.4Edit add sticky */
-    position: sticky;
-    top: 0;
-    z-index: 100;  
+    padding: 10px;
+    z-index: 100; /* Keep header above other content */
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
 }
-
 h1 {
     margin: 0;
     font-size: 2.5rem;
@@ -66,6 +75,48 @@ h3 {
     color: rgb(61, 50, 204);
 }
 
+/*V1.5-Step 4 edit Made footer into flexbox. Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(61, 50, 204);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+footer h3 {
+    margin-top: 0;
+}
+
+/* Contact Information */
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Positioning Contact Information within the Footer */
+footer .contact-info {
+    position: absolute;
+    bottom: 10px; /* 10px from the bottom of the footer */
+    left: 20px;  /* 20px from the left side of the footer */
+    width: calc(100% - 40px); /* Ensures the contact section fits nicely */
+    text-align: left;
+}
+
 /* Sidebar */
 .sidebar {
     grid-area: sidebar;
@@ -73,6 +124,10 @@ h3 {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
+    /*V1.5edit step 1 added grow/shrink and items to be centered to sidebar */
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between; /* Ensures content is spread out, button at bottom */
     height: 100%; /* Full height of the sidebar */
@@ -84,6 +139,8 @@ h3 {
     color: rgb(61, 50, 204);
     margin-bottom: 15px;
     font-size: 1.2rem;
+    /*V1.5edit step 1 added grow/shrink and items to be centered to sidebar */
+    text-align: center;
 }
 
 .sidebar a:hover {
@@ -121,18 +178,27 @@ h3 {
     grid-area: main;
     padding: 20px;
     overflow-y: auto;
-    /*v1.4 edit add grid to main*/
-    display: grid;
+    /*v1.5-Step2  add flex to display, and flex-direction to column to stack vertically */
+    display: flex;
+    flex-direction: column;
     grid-template-columns: 1fr;
     gap: 20px;
 }
 
+/*v1.5edit-Step2 Allows section to grow and shrink when available */
+section {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 20px;
+}
+
 /* Projects Section - Grid Layout */
-#projects .projects {
+/*V1.5Edit-Step3 make the skills section a grid*/
+.projects {
     display: grid; /* Enable grid layout */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid */
     grid-gap: 20px; /* Space between grid items */
-    margin-top: 20px;
+    gap: 20px;
 }
 
 /* Style for individual project items */
@@ -146,6 +212,12 @@ h3 {
     justify-content: flex-start;
 }
 
+/*V1.5Edit-Step3: make the 1st project span across two columns and rows */
+.project-item:nth-child(1) {
+    grid-column: span 2; 
+    grid-row: span 2; 
+}
+
 .project-item img {
     width: 80%; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
@@ -156,6 +228,7 @@ h3 {
     margin-right: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 /*V1.4Edit add hover effect to project item images */
 .project-item img:hover {
     transform: scale(1.50); /*scale up image(pop out)*/
@@ -168,38 +241,12 @@ h3 {
     font-size: 0.9rem;
     color: #555;
 }
-
-/* Footer */
-footer {
-    grid-area: footer;
-    background-color: rgb(61, 50, 204);
-    color: white;
-    text-align: center;
-    padding: 15px;
-}
-
-/* Table Styles */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid rgb(61, 50, 204);
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: rgb(61, 50, 204);
-    color: white;
-}
-
 /* Flexbox for Skills Section */
 .skills {
-    display: flex;
-    flex-wrap: wrap;
+    /*V1.5Edit-Step3 make the skills section a grid*/
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax(50px, 1fr)); /* Creates a responsive grid */
+    grid-gap: 20px; /* Space between grid items */
     gap: 20px;
 }
 
@@ -231,42 +278,24 @@ th {
     color: rgb(61, 50, 204); /* Change text color on hover */
 }
 
-/* Footer */
-footer {
-    grid-area: footer;
-    background-color: rgb(61, 50, 204);
-    color: white;
-    text-align: center;
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid rgb(61, 50, 204);
     padding: 10px;
-    position: relative; /* Allow positioning within the footer */
-}
-
-footer h3 {
-    margin-top: 0;
-}
-
-/* Contact Information */
-footer p {
-    margin: 5px 0;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Positioning Contact Information within the Footer */
-footer .contact-info {
-    position: absolute;
-    bottom: 10px; /* 10px from the bottom of the footer */
-    left: 20px;  /* 20px from the left side of the footer */
-    width: calc(100% - 40px); /* Ensures the contact section fits nicely */
     text-align: left;
 }
+
+th {
+    background-color: rgb(61, 50, 204);
+    color: white;
+}
+
 
 /*---------v1.4 Edit---------*/
 /* Mobile (up to 480px) */

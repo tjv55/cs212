@@ -1,10 +1,5 @@
-<!--V1.4Edit 
-Cleaned and Organized html and css code.
-Optional Step:
-Created a spinner animation when the page is loading
-once the body is loaded the spinner is hidden
-Used javascript to make loaded class to detect once page is loaded
-to hide the spinner
+<!--V1.5Edit 
+Removed Spinner section
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,40 +9,11 @@ to hide the spinner
     <title>Tyler Vander Mooren - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /*V1.4EDIT added loading spinner*/
-        /* Spinner Styles */
-        .spinner {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid rgb(61, 50, 204);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000; /* Ensure it is above other content */
-        }
-
-        /* Spinner Animation */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Hide spinner once the page has loaded */
-        body.loaded .spinner {
-            display: none;
-        }
+        
     </style>
 </head>
 
 <body>
-    
-    <!-- Spinner HTML -->
-    <div class="spinner"></div>
-
     <!-- Page Layout -->
     <div class="container">
         <!-- Header Section with Name and Role -->
@@ -156,13 +122,6 @@ to hide the spinner
             <p><a href="https://github.com/tjv55/cs212">Github (School Account)</a></p>
         </div>
     </footer>
-        <script>
-            // Wait for the page to load completely
-            window.addEventListener('load', function() {
-                // When the page is loaded, hide the spinner by adding 'loaded' class to the body
-                document.body.classList.add('loaded');
-            });
-        </script>
 </body>
 
 </html>
