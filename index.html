@@ -1,34 +1,53 @@
+<!--V1.4Edit 
+Cleaned and Organized html and css code.
+Optional Step:
+Created a spinner animation when the page is loading
+once the body is loaded the spinner is hidden
+Used javascript to make loaded class to detect once page is loaded
+to hide the spinner
+-->
 <!DOCTYPE html>
-<!-- Edit Notes:
- indexhw2->indexhw3
- Added css styles sheet for better customization
- Step 1:
- Page layout using CSS grid
- Header,Sidebar,Main Content, Footer Sections in .container class
- Step 2:
- Used flexbox to align navigation items
- Step 3:
- Added some color to sections
- Step 4:
- flexbox to decorate skills section
- step 5:
- Css grid to display project section
- Step 6:
- Position contact information in Footer
- Step 7:
- Styled the download resume button and
- put in left navigation menu
- utiziling position absolute
- -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tyler Vander Mooren - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /*V1.4EDIT added loading spinner*/
+        /* Spinner Styles */
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid rgb(61, 50, 204);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; /* Ensure it is above other content */
+        }
+
+        /* Spinner Animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hide spinner once the page has loaded */
+        body.loaded .spinner {
+            display: none;
+        }
+    </style>
 </head>
 
-    <body>
+<body>
+    
+    <!-- Spinner HTML -->
+    <div class="spinner"></div>
+
     <!-- Page Layout -->
     <div class="container">
         <!-- Header Section with Name and Role -->
@@ -37,105 +56,113 @@
             <h2>Expert Snowboarder, Student of Cyber Security</h2>
         </header>
 
-        <!-- Sidebar Navigation -->
-        <div class="sidebar">
-            <a href="#summary">Summary</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="https://docs.google.com/document/d/1_FxqUrUPCA8dzJNs6HSmchz7uPMRsOEFzBuS9GOGWns/edit?usp=sharing" class="resume-btn"><p style ="color:white;">Download Resume</p></a>
-        </div>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a href="#summary">Summary</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="https://docs.google.com/document/d/1_FxqUrUPCA8dzJNs6HSmchz7uPMRsOEFzBuS9GOGWns/edit?usp=sharing" class="resume-btn"><p style ="color:white;">Download Resume</p></a>
+    </div>
 
-        <!-- Main Content -->
-        <div class="main">
-            <!-- Summary Section -->
-            <section id="summary">
-                <h3>Introduction</h3>
-                <p>Hello! I'm Tyler Vander Mooren, a passionate snowboarder with a deep interest in technology and a strong commitment to pursuing a career in Cyber Security. Throughout my life, I've always been drawn to problem-solving, whether it's navigating the slopes or solving a puzzle in a game. As a snowboarder, I embrace the challenges that come with mastering new tricks and conquering challenging terrains, which parallels my approach to learning and growing in the field of Cyber Security.</p>
-            </section>
+     <!-- Main Content -->
+    <div class="main">
+        <!-- Summary Section -->
+        <section id="summary">
+            <h3>Introduction</h3>
+            <p>Hello! I'm Tyler Vander Mooren, a passionate snowboarder with a deep interest in technology and a strong commitment to pursuing a career in Cyber Security. Throughout my life, I've always been drawn to problem-solving, whether it's navigating the slopes or solving a puzzle in a game. As a snowboarder, I embrace the challenges that come with mastering new tricks and conquering challenging terrains, which parallels my approach to learning and growing in the field of Cyber Security.</p>
+        </section>
 
-            <!-- Skills Section -->
-            <section id="skills">
-                <h3>Skills</h3>
-                <ul class="skills">
-                    <li><b>HTML & CSS</b> - Expertise in creating visually appealing and responsive webpages.</li>
-                    <li><b>JavaScript</b> - Knowledge of dynamic and interactive web development.</li>
-                    <li><b>Project Management</b> - Experience leading teams and managing timelines.</li>
-                    <li><b>Snowboarding</b> - Proficient in all aspects of free riding and shredding <mark>pow</mark>.</li>
-                </ul>
-            </section>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h3>Skills</h3>
+            <ul class="skills">
+                <li><b>HTML & CSS</b> - Expertise in creating visually appealing and responsive webpages.</li>
+                <li><b>JavaScript</b> - Knowledge of dynamic and interactive web development.</li>
+                <li><b>Project Management</b> - Experience leading teams and managing timelines.</li>
+                <li><b>Snowboarding</b> - Proficient in all aspects of free riding and shredding <mark>pow</mark>.</li>
+            </ul>
+        </section>
 
-            <!-- Projects Section -->
-            <section id="projects">
-                <h3>Projects</h3>
-                <div class="projects">
-                    <div class="project-item">
-                        <b>Project 1: Web Development Portfolio</b>
-                        <p>A personal portfolio website developed to showcase my skills in web design and development. Features include responsive layout and interactive components.</p>
-                        <img src="https://tjv55.blob.core.windows.net/cs212/project1pic1.png" alt="project1" width="500" height="333">
-                        <small>(Picture of the development setup for project 1)</small>
-                    </div>
-
-                    <div class="project-item">
-                        <b>Project 2: Endless Runner Java Game</b>
-                        <p>A personal attempt at making a game in the subgenre of platform game in which the player character runs for an infinite amount of time while avoiding obstacles. <small>(In progress, still working on refining gameplay mechanics.)</small></p>
-                        <img src="https://tjv55.blob.core.windows.net/cs212/project2pic.png" alt="proj2pic1" width="200" height="133"/>
-                        <small>(Picture of Opening Screen)</small>
-                        <img src="https://tjv55.blob.core.windows.net/cs212/project2pic2.png" alt="proj2pic2" width="200" height="133"/>
-                        <small>(Picture of Game Over Screen)</small>
-                    </div>
-
-                    <div class="project-item">
-                        <b>Project 3: Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</b>
-                        <p>A simple project that converts Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</p>
-                        <img src="https://tjv55.blob.core.windows.net/cs212/project3pic.jpg" alt="proj3pic1" width="200" height="133">
-                        <small>(Picture of GUI Application)</small>
-                        <img src="https://tjv55.blob.core.windows.net/cs212/project3pic2.png" alt="proj3pic2" width="500" height="333"/>
-                        <small>(Snippet of some of the Code)</small>
-                    </div>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h3>Projects</h3>
+            <div class="projects">
+                <div class="project-item">
+                    <b>Project 1: Web Development Portfolio</b>
+                    <p>A personal portfolio website developed to showcase my skills in web design and development. Features include responsive layout and interactive components.</p>
+                    <img src="https://tjv55.blob.core.windows.net/cs212/project1pic1.png" alt="project1" width="500" height="333">
+                    <small>(Picture of the development setup for project 1)</small>
                 </div>
-            </section>
 
-            <!-- Education Section -->
-            <section id="education">
-                <h3>Education & Experience</h3>
-                <table>
-                    <tr>
-                        <th>Institution/Company</th>
-                        <th>Degree or Position</th>
-                        <th>Duration</th>
-                    </tr>
-                    <tr>
-                        <td>Northern Arizona University</td>
-                        <td>BS Cyber Security</td>
-                        <td>2024-Current</td>
-                    </tr>
-                    <tr>
-                        <td>Alta Vista Country Club</td>
-                        <td>Golf Shop Attendant</td>
-                        <td>2024-Current</td>
-                    </tr>
-                    <tr>
-                        <td>Stator Bros</td>
-                        <td>Meat Clerk</td>
-                        <td>2020-2023</td>
-                    </tr>
-                    <tr>
-                        <td>Snowboarder</td>
-                        <td>Freestyle Expert</td>
-                        <td>2003-Current</td>
-                    </tr>
-                </table>
-            </section>
-        </div>
-
-            <!-- Footer Section -->
-            <footer>
-                <h3>Contact Information</h3>
-                <div class="contact-info">
-                    <p><a href="mailto:tjv55@nau.edu">Send Email:</a> tjv55@nau.edu</p>
-                    <p><a href="https://github.com/tjv55/cs212">Github (School Account)</a></p>
+                <div class="project-item">
+                    <b>Project 2: Endless Runner Java Game</b>
+                    <p>A personal attempt at making a game in the subgenre of platform game in which the player character runs for an infinite amount of time while avoiding obstacles. <small>(In progress, still working on refining gameplay mechanics.)</small></p>
+                    <img src="https://tjv55.blob.core.windows.net/cs212/project2pic.png" alt="proj2pic1" width="200" height="133"/>
+                    <small>(Picture of Opening Screen)</small>
+                    <img src="https://tjv55.blob.core.windows.net/cs212/project2pic2.png" alt="proj2pic2" width="200" height="133"/>
+                    <small>(Picture of Game Over Screen)</small>
                 </div>
-            </footer>
-    </body>
+
+                <div class="project-item">
+                    <b>Project 3: Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</b>
+                    <p>A simple project that converts Fahrenheit(<sup>o</sup>F) to Celsius(<sup>o</sup>C)</p>
+                    <img src="https://tjv55.blob.core.windows.net/cs212/project3pic.jpg" alt="proj3pic1" width="200" height="133">
+                    <small>(Picture of GUI Application)</small>
+                    <img src="https://tjv55.blob.core.windows.net/cs212/project3pic2.png" alt="proj3pic2" width="500" height="333"/>
+                    <small>(Snippet of some of the Code)</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h3>Education & Experience</h3>
+            <table>
+                <tr>
+                    <th>Institution/Company</th>
+                    <th>Degree or Position</th>
+                    <th>Duration</th>
+                </tr>
+                <tr>
+                    <td>Northern Arizona University</td>
+                    <td>BS Cyber Security</td>
+                    <td>2024-Current</td>
+                </tr>
+                <tr>
+                    <td>Alta Vista Country Club</td>
+                    <td>Golf Shop Attendant</td>
+                    <td>2024-Current</td>
+                </tr>
+                <tr>
+                    <td>Stator Bros</td>
+                    <td>Meat Clerk</td>
+                    <td>2020-2023</td>
+                </tr>
+                <tr>
+                    <td>Snowboarder</td>
+                    <td>Freestyle Expert</td>
+                    <td>2003-Current</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <h3>Contact Information</h3>
+        <div class="contact-info">
+            <p><a href="mailto:tjv55@nau.edu">Send Email:</a> tjv55@nau.edu</p>
+            <p><a href="https://github.com/tjv55/cs212">Github (School Account)</a></p>
+        </div>
+    </footer>
+        <script>
+            // Wait for the page to load completely
+            window.addEventListener('load', function() {
+                // When the page is loaded, hide the spinner by adding 'loaded' class to the body
+                document.body.classList.add('loaded');
+            });
+        </script>
+</body>
+
 </html>

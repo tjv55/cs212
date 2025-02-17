@@ -1,3 +1,24 @@
+/*-------v1.4Edit---------
+Step 1: Add responsive design - mobile,tablet,desktop
+mobile - 480px(single column/Hide sidebar)
+tablet - 481-768px(double column)
+desktop - 769px+ 
+
+Step 2:
+added transform properties to the skills section
+when hovered over, the section scales up making a pop out effect
+added bold text to change to blue to add more effect and fit design
+
+Step 3:
+Applied float to images and consitent scaling for the images
+added sticky positioing to the header
+added hover over effect to project section images
+
+Step 4:
+Added transition effect to download button to match other pop out effect
+Added grid for main content area
+other sections already have flex/etc
+*/
 /* Global Styles */
 body {
     font-family: Arial, sans-serif;
@@ -23,8 +44,12 @@ header {
     grid-area: header;
     background-color: rgb(61, 50, 204);
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    /*V1.4Edit add sticky */
+    position: sticky;
+    top: 0;
+    z-index: 100;  
 }
 
 h1 {
@@ -37,6 +62,10 @@ h2 {
     font-size: 1.5rem;
 }
 
+h3 {
+    color: rgb(61, 50, 204);
+}
+
 /* Sidebar */
 .sidebar {
     grid-area: sidebar;
@@ -47,6 +76,7 @@ h2 {
     flex-direction: column;
     justify-content: space-between; /* Ensures content is spread out, button at bottom */
     height: 100%; /* Full height of the sidebar */
+    
 }
 
 .sidebar a {
@@ -75,12 +105,15 @@ h2 {
     margin-top: auto; /* Pushes button to the bottom of the sidebar */
     width: auto; /* Make the width fit the content */
     display: block; /* Make the button behave like a block element */
+    /* V1.4Edit Transition for Download Resume Button */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* V1.4Edit Transition for Download Resume Button */
 .resume-btn:hover {
-    background-color: #2c249e; /* Darker shade on hover */
-    padding: 12px 24px; /* Slightly increase padding on hover */
-    border-radius: 30px; /* More pronounced curve on hover */
+    background-color: #2c249e;
+    transform: scale(1.25);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Main Content Area */
@@ -88,11 +121,12 @@ h2 {
     grid-area: main;
     padding: 20px;
     overflow-y: auto;
+    /*v1.4 edit add grid to main*/
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
-h3 {
-    color: rgb(61, 50, 204);
-}
 /* Projects Section - Grid Layout */
 #projects .projects {
     display: grid; /* Enable grid layout */
@@ -113,10 +147,19 @@ h3 {
 }
 
 .project-item img {
-    width: 100%; /* Make images responsive */
+    width: 80%; /* Adjust size as needed */
     height: auto; /* Maintain aspect ratio */
     margin-top: 10px;
     border-radius: 5px;
+    /*V1.4Edit Float to project items and align*/
+    float: left;
+    margin-right: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/*V1.4Edit add hover effect to project item images */
+.project-item img:hover {
+    transform: scale(1.50); /*scale up image(pop out)*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .project-item small {
@@ -166,10 +209,26 @@ th {
     padding: 10px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    /*V1.4Edit transition added*/
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*V1.4Edit added hover effect to skills section*/
+.skills li:hover {
+    transform: scale(1.1); /* Scale the item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    background-color: #f4f4f4; /* Change background color */
 }
 
 .skills li b {
     font-size: 1.2rem;
+    /*V1.4Edit add transition to skills */
+    transition: color 0.3s ease;
+}
+
+/*V1.4Edit added color to hovor effect skills section*/
+.skills li:hover b {
+    color: rgb(61, 50, 204); /* Change text color on hover */
 }
 
 /* Footer */
@@ -178,7 +237,7 @@ footer {
     background-color: rgb(61, 50, 204);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     position: relative; /* Allow positioning within the footer */
 }
 
@@ -209,3 +268,76 @@ footer .contact-info {
     text-align: left;
 }
 
+/*---------v1.4 Edit---------*/
+/* Mobile (up to 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+        height: 100vh; /*Ensure full height*/
+    }
+    
+    .sidebar {
+        display: flex;
+        padding: 15px;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .main {
+        padding: 15px;
+        
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablet 768px and above */
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr 1fr; /* Two column layout */
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+
+    .sidebar {
+        display: flex;
+        padding: 15px;
+        height: 100%;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Desktop (769px and above) */
+@media (min-width: 769px) {
+    .container {
+        grid-template-columns: 250px 1fr; /* Desktop layout with sidebar */
+        grid-template-areas:
+            "header header"
+            "sidebar main"
+            "footer footer";
+    }
+}
