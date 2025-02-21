@@ -1,281 +1,34 @@
-/*-------v1.4Edit---------
-Step1:
-Flexbox already implemented on nav bar
-Flex-grow/shrink applied
-Each is a working link to each section
-Items are now centered
+/*Header Styles */
+header{
+    font-family: 'Grechen Fuemen';
+}
 
-Step2:
-Implemented flexbox for the main container
-Implemented flex-direction using column 
-applied flex grow/shrink for main container
-Main-container has padding added 
-
-Step3:
-Implemented Grid for skills and projects section
-used grid-template-columns/rows for each section
-made project 1 span across a column and row in project section
-
-Step4:
-Make header/footer a flexbox
-Header is fixed with property fixed
-footer is fixed with property fixed
-*/
-/* Global Styles */
+/* Body styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto';
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    /*V1.5-step 4 edit added top/bottom margins */
-    margin-top: 80px;
-    margin-bottom: 60px;
+    background-color: #2c6cc0;
 }
 
-/* Grid Layout */
-.container {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
-    height: 100vh;
+/* Gradient Backgrounds for Header and Footer */
+.bg-gradient-primary {
+    background: linear-gradient(to right, #2c6cc0, #000000);
 }
 
-/*V1.5-Step 4 edit Made header into flexbox. Header */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgb(61, 50, 204);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    z-index: 100; /* Keep header above other content */
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 1;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-}
-h1 {
-    margin: 0;
-    font-size: 2.5rem;
+/* Navigation Bar */
+.navbar {
+    margin-top: 80px; /* Prevent overlap with fixed header */
 }
 
-h2 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-h3 {
-    color: rgb(61, 50, 204);
-}
-
-/*V1.5-Step 4 edit Made footer into flexbox. Footer */
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(61, 50, 204);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-footer h3 {
-    margin-top: 0;
-}
-
-/* Contact Information */
-footer p {
-    margin: 5px 0;
-}
-
+/* Footer */
 footer a {
-    color: white;
     text-decoration: none;
+    color: white;
 }
 
 footer a:hover {
     text-decoration: underline;
-}
-
-/* Positioning Contact Information within the Footer */
-footer .contact-info {
-    position: absolute;
-    bottom: 10px; /* 10px from the bottom of the footer */
-    left: 20px;  /* 20px from the left side of the footer */
-    width: calc(100% - 40px); /* Ensures the contact section fits nicely */
-    text-align: left;
-}
-
-/* Sidebar */
-.sidebar {
-    grid-area: sidebar;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    /*V1.5edit step 1 added grow/shrink and items to be centered to sidebar */
-    flex-grow: 1;
-    flex-shrink: 1;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures content is spread out, button at bottom */
-    height: 100%; /* Full height of the sidebar */
-    
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: rgb(61, 50, 204);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    /*V1.5edit step 1 added grow/shrink and items to be centered to sidebar */
-    text-align: center;
-}
-
-.sidebar a:hover {
-    color: #fff;
-    background-color: rgb(61, 50, 204);
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-/* Style for Download Resume Button */
-.resume-btn {
-    background-color: #3d32cc; /* Matching color to the header */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding around the text */
-    border-radius: 25px; /* Rounded corners */
-    font-size: 1.2rem; /* Increase font size for better visibility */
-    text-align: center;
-    text-decoration: none; /* Remove underline from link */
-    margin-top: auto; /* Pushes button to the bottom of the sidebar */
-    width: auto; /* Make the width fit the content */
-    display: block; /* Make the button behave like a block element */
-    /* V1.4Edit Transition for Download Resume Button */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* V1.4Edit Transition for Download Resume Button */
-.resume-btn:hover {
-    background-color: #2c249e;
-    transform: scale(1.25);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Main Content Area */
-.main {
-    grid-area: main;
-    padding: 20px;
-    overflow-y: auto;
-    /*v1.5-Step2  add flex to display, and flex-direction to column to stack vertically */
-    display: flex;
-    flex-direction: column;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-/*v1.5edit-Step2 Allows section to grow and shrink when available */
-section {
-    flex-grow: 1;
-    flex-shrink: 1;
-    padding: 20px;
-}
-
-/* Projects Section - Grid Layout */
-/*V1.5Edit-Step3 make the skills section a grid*/
-.projects {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid */
-    grid-gap: 20px; /* Space between grid items */
-    gap: 20px;
-}
-
-/* Style for individual project items */
-.project-item {
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid rgb(61, 50, 204);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-/*V1.5Edit-Step3: make the 1st project span across two columns and rows */
-.project-item:nth-child(1) {
-    grid-column: span 2; 
-    grid-row: span 2; 
-}
-
-.project-item img {
-    width: 80%; /* Adjust size as needed */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 10px;
-    border-radius: 5px;
-    /*V1.4Edit Float to project items and align*/
-    float: left;
-    margin-right: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/*V1.4Edit add hover effect to project item images */
-.project-item img:hover {
-    transform: scale(1.50); /*scale up image(pop out)*/
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-}
-
-.project-item small {
-    display: block;
-    margin-top: 5px;
-    font-size: 0.9rem;
-    color: #555;
-}
-/* Flexbox for Skills Section */
-.skills {
-    /*V1.5Edit-Step3 make the skills section a grid*/
-    display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(50px, 1fr)); /* Creates a responsive grid */
-    grid-gap: 20px; /* Space between grid items */
-    gap: 20px;
-}
-
-.skills li {
-    width: 30%;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    /*V1.4Edit transition added*/
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/*V1.4Edit added hover effect to skills section*/
-.skills li:hover {
-    transform: scale(1.1); /* Scale the item */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
-    background-color: #f4f4f4; /* Change background color */
-}
-
-.skills li b {
-    font-size: 1.2rem;
-    /*V1.4Edit add transition to skills */
-    transition: color 0.3s ease;
-}
-
-/*V1.4Edit added color to hovor effect skills section*/
-.skills li:hover b {
-    color: rgb(61, 50, 204); /* Change text color on hover */
 }
 
 /* Table Styles */
@@ -286,87 +39,82 @@ table {
 }
 
 th, td {
-    border: 1px solid rgb(61, 50, 204);
+    border: 1px solid #3d32cc;
     padding: 10px;
     text-align: left;
 }
 
 th {
-    background-color: rgb(61, 50, 204);
+    background-color: #3d32cc;
     color: white;
 }
 
+/* Skills Section */
+.list-group-item {
+    font-size: 1.2rem;
+}
 
-/*---------v1.4 Edit---------*/
-/* Mobile (up to 480px) */
-@media (max-width: 480px) {
-    body {
-        font-size: 14px;
-    }
+/* pictures (cardects) */
+.card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    /* Add a subtle zoom effect to images */
+    transition: transform 0.3s ease-in-out;
+}
+.card-img-top3 {
+    max-height: 150px; /* Adjust height to 50% of the original size */
+    object-fit: cover;
+    border-radius: 8px;
+    width: 50%; /* Shrinks width to 50% of the original size */
+    margin: 0 auto; /* Centers the images */
+    display: block;
+    /* Add a subtle zoom effect to images */
+    transition: transform 0.3s ease-in-out;
+}
+.card-title {
+    font-size: 1.5rem;
+}
 
+.card-text {
+    font-size: 1rem;
+}
+/* Hover Effects */
+
+/* Hover effect for Links */
+.nav-link:hover {
+    color: #ffd700 !important; /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge text */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for Resume Button */
+.btn-primary.hover-glow:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Add glow effect */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for Images (cardect Images) */
+.hover-zoom:hover {
+    transform: scale(1.1); /* Slightly zoom in the image */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.card-img-top:hover {
+    transform: scale(1.05); /* Zoom in effect */
+}
+.card-img-top3:hover {
+    transform: scale(1.05); /* Zoom in effect */
+}
+/* Responsive Design */
+@media (max-width: 768px) {
     .container {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-areas:
-            "header"
-            "main"
-            "footer";
-        height: 100vh; /*Ensure full height*/
+        padding-left: 15px;
+        padding-right: 15px;
     }
     
-    .sidebar {
-        display: flex;
-        padding: 15px;
-        height: 100%;
-        flex-direction: column;
-    }
-
-    .main {
-        padding: 15px;
-        
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-}
-
-/* Tablet 768px and above */
-@media (max-width: 1024px) {
-    .container {
-        grid-template-columns: 1fr 1fr; /* Two column layout */
-        grid-template-areas:
-            "header header"
-            "sidebar main"
-            "footer footer";
-    }
-
-    .sidebar {
-        display: flex;
-        padding: 15px;
-        height: 100%;
-        flex-direction: column;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.4rem;
-    }
-}
-
-/* Desktop (769px and above) */
-@media (min-width: 769px) {
-    .container {
-        grid-template-columns: 250px 1fr; /* Desktop layout with sidebar */
-        grid-template-areas:
-            "header header"
-            "sidebar main"
-            "footer footer";
+    .card-body img {
+        width: 100%;
+        height: auto;
     }
 }
