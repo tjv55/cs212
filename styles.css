@@ -1,3 +1,48 @@
+/* Light Theme */
+.light-theme {
+    background-color: #2c6cc0;
+    color: #333;
+}
+
+.light-theme header {
+    background: linear-gradient(to right, #2c6cc0, #000000);
+}
+
+.light-theme .navbar {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.light-theme .btn-secondary {
+    background-color: #3d32cc;
+    color: white;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #0c0c0b;
+    color: #781297;
+}
+.dark-theme footer {
+    background: #0c0c0b;
+}
+
+.dark-theme header {
+    background: linear-gradient(to right, #0d0d0e, #781297);
+}
+
+.dark-theme .navbar {
+    background: linear-gradient(to right, #0d0d0e, #781297);
+    color: #f0f0f0;
+}
+
+.dark-theme .btn-secondary {
+    background-color: #fc5c7d;
+    color: white;
+}
+
+
+
 /*Header Styles */
 header{
     font-family: 'Grechen Fuemen';
@@ -9,6 +54,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #2c6cc0;
+    padding-bottom: 80px;
 }
 
 /* Gradient Backgrounds for Header and Footer */
@@ -19,9 +65,14 @@ body {
 /* Navigation Bar */
 .navbar {
     margin-top: 80px; /* Prevent overlap with fixed header */
+    z-index: 500;
 }
 
 /* Footer */
+footer {
+    margin-top: 80px;
+}
+
 footer a {
     text-decoration: none;
     color: white;
@@ -29,6 +80,22 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+footer .d-flex {
+    flex-wrap: wrap; /* Allow wrapping if the inputs exceed the container width */
+    justify-content: center;
+    align-items: center;
+}
+
+footer .mx-2 {
+    margin: 5px;
+    /* Ensure inputs don't overflow */
+}
+
+footer .form-control {
+    max-width: 200px; /* Prevent input fields from becoming too wide */
+    min-width: 120px; /* Ensure the inputs don't get too small */
 }
 
 /* Table Styles */
@@ -116,5 +183,22 @@ th {
     .card-body img {
         width: 100%;
         height: auto;
+    }
+    footer .d-flex {
+        flex-direction: column;
+    }
+
+    footer .form-control {
+        max-width: 100%; /* Inputs will take up the full width on small screens */
+    }
+}
+/* Responsive Design for Small Screens */
+@media (max-width: 576px) {
+    footer .d-flex {
+        flex-direction: column;
+    }
+
+    footer .form-control {
+        max-width: 100%; /* Inputs will take up the full width on small screens */
     }
 }
